@@ -1,0 +1,160 @@
+[
+    {
+        "id": "47da06a3f34d5761",
+        "type": "tab",
+        "label": "Choose a Card Game - ChoCaGames",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7a0da651737974e7",
+        "type": "inject",
+        "z": "47da06a3f34d5761",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "e09d5151a35324c4"
+            ]
+        ]
+    },
+    {
+        "id": "e09d5151a35324c4",
+        "type": "template",
+        "z": "47da06a3f34d5761",
+        "name": "Cabeca",
+        "field": "cabeca",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "\n\n<!DOCTYPE html> \n<html>\n<head>\n\t<title>Page Title</title>\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n\t<link rel=\"stylesheet\" href=\"https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css\" />\n\t<script src=\"https://code.jquery.com/jquery-1.11.1.min.js\"></script>\n\t<script src=\"https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js\"></script>\n\n</head>\n",
+        "output": "str",
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "0c756d56e6031722",
+                "b41019d785deb54c"
+            ]
+        ]
+    },
+    {
+        "id": "0c756d56e6031722",
+        "type": "debug",
+        "z": "47da06a3f34d5761",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "efcca9d8dc3260a4",
+        "type": "http response",
+        "z": "47da06a3f34d5761",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1310,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ba747d931a75158f",
+        "type": "http in",
+        "z": "47da06a3f34d5761",
+        "name": "ChoCa",
+        "url": "/choca",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 260,
+        "wires": [
+            [
+                "e09d5151a35324c4"
+            ]
+        ]
+    },
+    {
+        "id": "b41019d785deb54c",
+        "type": "template",
+        "z": "47da06a3f34d5761",
+        "name": "Corpo",
+        "field": "corpo",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "\n\n<body>\n\n<!-- Start of first page -->\n<div data-role=\"page\" id=\"foo\">\n\n\t<div data-role=\"header\">\n\t\t<h1>Choose a cart</h1>\n\t</div><!-- /header -->\n\n\t<div role=\"main\" class=\"ui-content\">\n\t\t<div class=\"ui-grid-b\">\n            <div class=\"ui-block-a\"><a class=\"ui-shadow ui-btn ui-icon-grid ui-btn-icon-left ui-corner-all\"  href=\"#bar\" data-transition=\"flip\" >Choose A</a></div>\n            <div class=\"ui-block-b\"><a class=\"ui-shadow ui-btn ui-icon-grid ui-btn-icon-left ui-corner-all\"  href=\"#bar\" data-transition=\"flip\" >Choose B</a></div>\n            <div class=\"ui-block-c\"><a class=\"ui-shadow ui-btn ui-icon-grid ui-btn-icon-left ui-corner-all\"  href=\"#bar\" data-transition=\"flip\" >Choose c</a></div>\n\n            <div class=\"ui-block-a\"><a class=\"ui-shadow ui-btn ui-icon-grid ui-btn-icon-left ui-corner-all\"  href=\"#bar\" data-transition=\"flip\" >Choose D</a></div>\n            <div class=\"ui-block-b\"><a class=\"ui-shadow ui-btn ui-icon-grid ui-btn-icon-left ui-corner-all\"  href=\"#bar\" data-transition=\"flip\" >Choose E</a></div>\n            <div class=\"ui-block-c\"><a class=\"ui-shadow ui-btn ui-icon-grid ui-btn-icon-left ui-corner-all\"  href=\"#bar\" data-transition=\"flip\" >Choose F</a></div>\n        </div><!-- /grid-c -->\n\t\n\t</div><!-- /content -->\n\n\t<div data-role=\"footer\">\n\t\t<h4>ChoCaGames - CHOose CArt GAMES</h4>\n\t</div><!-- /footer -->\n</div><!-- /page -->\n\n<!-- Start of second page -->\n<div data-role=\"page\" id=\"bar\">\n\n\t<div data-role=\"header\">\n\t\t<h1>Bar</h1>\n\t</div><!-- /header -->\n\n\t<div role=\"main\" class=\"ui-content\">\n        <div class=\"ui-corner-all custom-corners\">\n            <div class=\"ui-bar ui-bar-a \">\n                <h3>Your Option</h3>\n            </div>\n            \n            <div class=\"ui-body ui-body-a\">\n                <div><a class=\"ui-shadow ui-btn ui-btn-active ui-icon-grid ui-btn-icon-star ui-btn-icon-left\"  href=\"#foo\" data-transition=\"flip\" >Work</a></div>\n                <p  class=\"\" style=\"text-align: left\">Explain the words!</p>\n\n                <div class=\"ui-corner-all custom-corners\">\n                    <div class=\"ui-bar ui-bar-a \">\n                        <h3>But dont use</h3>\n                    </div>\n                    \n                    <div class=\"ui-body ui-body-a\">\n                        <p  class=\"ui-state-error ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left\" style=\"text-align: left\">job</p>\n                        <p  class=\"ui-state-error ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left\" style=\"text-align: left\">money</p>\n                        <p  class=\"ui-state-error ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left\" style=\"text-align: left\">every day</p>\n                    </div>\n                </div>\n\n\n            </div>\n        </div>\n\n\n\n\t\t<p><a href=\"#foo\">Back to foo</a></p>\n\t</div><!-- /content -->\n\n\t<div data-role=\"footer\">\n\t\t<h4>Page Footer</h4>\n\t</div><!-- /footer -->\n</div><!-- /page -->\n\n\n<style>\n.ui-state-error,\n.ui-widget-content .ui-state-error,\n.ui-widget-header .ui-state-error {\n\tborder: 1px solid #f1a899 !important;;\n\tbackground: #fddfdf !important;;\n\tcolor: #5f3f3f !important;;\n}\n.ui-state-error a,\n.ui-widget-content .ui-state-error a,\n.ui-widget-header .ui-state-error a {\n\tcolor: #5f3f3f;\n}\n    \n</style>",
+        "output": "str",
+        "x": 570,
+        "y": 260,
+        "wires": [
+            [
+                "a31d9dcd3edacf4c"
+            ]
+        ]
+    },
+    {
+        "id": "a31d9dcd3edacf4c",
+        "type": "template",
+        "z": "47da06a3f34d5761",
+        "name": "Fim",
+        "field": "fim",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "\n\n</body>\n</html>",
+        "output": "str",
+        "x": 770,
+        "y": 260,
+        "wires": [
+            [
+                "28b7ec3e9c6a3884"
+            ]
+        ]
+    },
+    {
+        "id": "28b7ec3e9c6a3884",
+        "type": "function",
+        "z": "47da06a3f34d5761",
+        "name": "",
+        "func": "msg.payload =\n    msg.cabeca + msg.corpo + msg.fim;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 260,
+        "wires": [
+            [
+                "efcca9d8dc3260a4"
+            ]
+        ]
+    }
+]
